@@ -11,22 +11,36 @@ mkdir -p $dir_output
 
 #### Investigate significant_xor_mouse.csv ####
 file_input=significant_xor_mouse.csv
-# get fine name of input file
-file_input_name=$(basename $file_input)
 # investigate p-value from 0 to 0.05 step 0.00001 mode se
-python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input_name"_networkInvestigation_pval_f1.csv -s snp1_name -t snp2_name -w adj_pval -th_l 0 -th_h 0.0001 -step 0.00001 -mod se
-python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input_name"_networkInvestigation_pval_f2.csv -s snp1_name -t snp2_name -w adj_pval -th_l 0.01 -th_h 0.011 -step 0.0001 -mod se
-# exclude the first line of the f2 file
-tail -n +2 $dir_output/"$file_input_name"_networkInvestigation_pval_f2.csv > $dir_output/"$file_input_name"_networkInvestigation_pval_f2_excl.csv
-# concatenate the two files
-cat $dir_output/"$file_input_name"_networkInvestigation_pval_f1.csv $dir_output/"$file_input_name"_networkInvestigation_pval_f2_excl.csv > $dir_output/"$file_input_name"_networkInvestigation_pval.csv
-# remove intermediate files
-rm $dir_output/"$file_input_name"_networkInvestigation_pval_f1.csv
-rm $dir_output/"$file_input_name"_networkInvestigation_pval_f2.csv
-rm $dir_output/"$file_input_name"_networkInvestigation_pval_f2_excl.csv
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_pval.csv -s snp1_name -t snp2_name -w adj_pval -th_l 0 -th_h 0.05 -step 0.00001 -mod se
+# investigate ttest (positive)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 0 -step 0.01 -mod ge
+# investigate ttest (negative)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_h 0 -step 0.01 -mod se
 
 #### Investigate significant_cart_mouse.csv ####
+file_input=significant_cart_mouse.csv
+# investigate p-value from 0 to 0.05 step 0.00001 mode se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_pval.csv -s snp1_name -t snp2_name -w adj_pval -th_l 0 -th_h 0.05 -step 0.00001 -mod se
+# investigate ttest (positive)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 0 -step 0.01 -mod ge
+# investigate ttest (negative)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_h 0 -step 0.01 -mod se
 
 #### Investigate xor_significant_rat.csv ####
+file_input=xor_significant_rat.csv
+# investigate p-value from 0 to 0.05 step 0.00001 mode se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_pval.csv -s snp1_name -t snp2_name -w adj_pval -th_l 0 -th_h 0.05 -step 0.00001 -mod se
+# investigate ttest (positive)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 0 -step 0.01 -mod ge
+# investigate ttest (negative)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_h 0 -step 0.01 -mod se
 
 #### cartesian_significant_rat.csv ####
+file_input=cartesian_significant_rat.csv
+# investigate p-value from 0 to 0.05 step 0.00001 mode se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_pval.csv -s snp1_name -t snp2_name -w adj_pval -th_l 0 -th_h 0.05 -step 0.00001 -mod se
+# investigate ttest (positive)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 0 -step 0.01 -mod ge
+# investigate ttest (negative)
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_h 0 -step 0.01 -mod se
