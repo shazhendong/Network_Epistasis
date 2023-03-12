@@ -16,7 +16,7 @@ python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_out
 # investigate ttest (positive)
 python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 4 -step 0.1 -mod ge
 # investigate ttest (negative)
-python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -step 0.1 -mod se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -th_h -3 -step 0.1 -mod se
 
 #### Investigate significant_cart_mouse.csv ####
 file_input=significant_cart_mouse.csv
@@ -25,7 +25,7 @@ python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_out
 # investigate ttest (positive)
 python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 4 -step 0.1 -mod ge
 # investigate ttest (negative)
-python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -step 0.1 -mod se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -th_h -3 -step 0.1 -mod se
 
 #### Investigate xor_significant_rat.csv ####
 file_input=xor_significant_rat.csv
@@ -34,7 +34,7 @@ python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_out
 # investigate ttest (positive)
 python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 4 -step 0.1 -mod ge
 # investigate ttest (negative)
-python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -step 0.1 -mod se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -th_h -3 -step 0.1 -mod se
 
 #### cartesian_significant_rat.csv ####
 file_input=cartesian_significant_rat.csv
@@ -43,4 +43,4 @@ python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_out
 # investigate ttest (positive)
 python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_positive.csv -s snp1_name -t snp2_name -w ttest -th_l 4 -step 0.1 -mod ge
 # investigate ttest (negative)
-python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -step 0.1 -mod se
+python $dir_script/networkInvestigation.py -i $dir_input/$file_input -o $dir_output/"$file_input"_networkInvestigation_ttest_negative.csv -s snp1_name -t snp2_name -w ttest -th_l -10 -th_h -3 -step 0.1 -mod se
