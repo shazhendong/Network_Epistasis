@@ -99,14 +99,14 @@ def investigate_network(df_edgelist, threshold, flt_mod, step):
     modularity_greedy = nx.algorithms.community.modularity(g, nx.algorithms.community.greedy_modularity_communities(g))
 
     # calculate network modularity based on Louvain method
-    modularity_louvain = nx.algorithms.community.modularity(g, nx.algorithms.community.louvain_communities(g))
+    # modularity_louvain = nx.algorithms.community.modularity(g, nx.algorithms.community.louvain_communities(g))
 
     # calculate clustering coefficient
     #clustering_coefficient = nx.clustering(g)
     
     # insert a row to output df using dict format
     # make a dict
-    d = {"threshold": threshold, "num_nodes": num_nodes, "num_edges": num_edges, "num_components": num_components, "size_largest_component": size_largest_component, "num_triangles": num_triangles, "modularity_greedy": modularity_greedy, "modularity_louvain": modularity_louvain}
+    d = {"threshold": threshold, "num_nodes": num_nodes, "num_edges": num_edges, "num_components": num_components, "size_largest_component": size_largest_component, "num_triangles": num_triangles, "modularity_greedy": modularity_greedy}
     # prepare dataframe from d
     print(d)
     return pd.DataFrame(d, index=[0])
