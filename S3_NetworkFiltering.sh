@@ -11,7 +11,8 @@ file_mouse_cat=Mouse_Cart2W_filtered.csv
 file_mouse_xor=Mouse_XOR2W_filtered.csv
 
 dir_script=scr
-file_script=edge_filter.py
+file_script_filter=edge_filter.py
+file_script_community=network_community.py
 
 # save pwd to home
 home=$(pwd)
@@ -24,16 +25,20 @@ cd $dir_output
 
 ## process rat_xor
 edgelist=$file_rat_xor
-cutoff_p=0.03
+cutoff_p=0.0434
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
 # filter the edgelist by pvalue threshold
-python $home/$dir_script/$file_script $edgelist snp1_name snp2_name adj_pval 0.03 se edge_list.csv
+python $home/$dir_script/$file_script_filter $edgelist snp1_name snp2_name adj_pval $cutoff_p se edge_list.csv
 # rename the edgelist
-mv edge_list.csv $edgelist.pvalue_cutoff_$cutoff_p.mod_se.csv
+name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv
+mv edge_list.csv $name_edgelist
 # determin the network community
-python $home/$dir_script/$file_script $edgelist.pvalue_cutoff_$cutoff_p.mod_se.csv snp1_name snp2_name adj_pval 0.03 se edge_list.csv
+python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# rename the community file
+name_community=$name_edgelist.community.csv
+mv community.csv $name_community
 
 # remove the edgelist
 rm $edgelist
