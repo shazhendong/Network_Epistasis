@@ -25,10 +25,10 @@ df_edges = pd.read_csv(edgelist_file, sep=',') # read the edgelist file
 
 # filter the edgelist
 if mode == 'se':
-    print('mode is se')
+    # print('mode is se')
     df_edges = df_edges[df_edges[weight] <= cutoff]
 elif mode == 'ge':
-    print('mode is ge')
+    # print('mode is ge')
     df_edges = df_edges[df_edges[weight] >= cutoff]
 else:
     print('mode should be se or ge')
