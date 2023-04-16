@@ -70,3 +70,51 @@ mv community.csv $name_community
 
 # remove the edgelist
 rm $edgelist
+
+## process rat_cart
+edgelist=$file_rat_cat
+cutoff_p=0.03
+cutoff_ttest_negative=-4.5
+cutoff_ttest_positive=5
+
+# copy the edgelist to the output folder
+cp $home/$dir_input/$edgelist .
+
+## p-value filtering
+# filter the edgelist by pvalue threshold
+python $home/$dir_script/$file_script_filter $edgelist snp1_name snp2_name adj_pval $cutoff_p se edge_list.csv
+# rename the edgelist
+name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv # edge list file name
+mv edge_list.csv $name_edgelist
+# determin the network community
+python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# rename the community file
+name_community=$name_edgelist.community.csv
+mv community.csv $name_community
+
+## ttest negative filtering
+# filter the edgelist by pvalue threshold
+python $home/$dir_script/$file_script_filter $edgelist snp1_name snp2_name ttest $cutoff_ttest_negative se edge_list.csv
+# rename the edgelist
+name_edgelist=$edgelist.ttest_negative_cutoff_$cutoff_ttest_negative.mod_se.edgelist.csv # edge list file name
+mv edge_list.csv $name_edgelist
+# determin the network community
+python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# rename the community file
+name_community=$name_edgelist.community.csv
+mv community.csv $name_community
+
+## ttest positive filtering
+# filter the edgelist by pvalue threshold
+python $home/$dir_script/$file_script_filter $edgelist snp1_name snp2_name ttest $cutoff_ttest_positive ge edge_list.csv
+# rename the edgelist
+name_edgelist=$edgelist.ttest_positive_cutoff_$cutoff_ttest_positive.mod_ge.edgelist.csv # edge list file name
+mv edge_list.csv $name_edgelist
+# determin the network community
+python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# rename the community file
+name_community=$name_edgelist.community.csv
+mv community.csv $name_community
+
+# remove the edgelist
+rm $edgelist
