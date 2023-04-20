@@ -13,6 +13,8 @@ file_mouse_xor=Mouse_XOR2W_filtered.csv
 dir_script=scr
 file_script_filter=edge_filter.py
 file_script_community=network_community.py
+file_prepare_snp=prepare_snp_for_gProfiler.py
+snp_range=10000
 
 # save pwd to home
 home=$(pwd)
@@ -42,6 +44,8 @@ name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv # edge list 
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -55,6 +59,8 @@ name_edgelist=$edgelist.ttest_negative_cutoff_$cutoff_ttest_negative.mod_se.edge
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -68,6 +74,8 @@ name_edgelist=$edgelist.ttest_positive_cutoff_$cutoff_ttest_positive.mod_ge.edge
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -94,6 +102,8 @@ name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv # edge list 
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -107,6 +117,8 @@ name_edgelist=$edgelist.ttest_negative_cutoff_$cutoff_ttest_negative.mod_se.edge
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -120,6 +132,8 @@ name_edgelist=$edgelist.ttest_positive_cutoff_$cutoff_ttest_positive.mod_ge.edge
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -146,6 +160,8 @@ name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv # edge list 
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -159,6 +175,8 @@ name_edgelist=$edgelist.ttest_negative_cutoff_$cutoff_ttest_negative.mod_se.edge
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
@@ -172,6 +190,8 @@ name_edgelist=$edgelist.ttest_positive_cutoff_$cutoff_ttest_positive.mod_ge.edge
 mv edge_list.csv $name_edgelist
 # determin the network community
 python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# prepare the snp coordinates for gProfiler
+python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
 name_community=$name_edgelist.community.csv
 mv community.csv $name_community
