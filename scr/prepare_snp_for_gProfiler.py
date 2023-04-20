@@ -28,7 +28,8 @@ chr = snps.str.split('.').str[0].str.split('chr').str[1]
 pos = snps.str.split('.').str[1].str.split('_').str[0]
 
 # create new column with chr:pos-range:pos+range with the column name snp_gprofiler_$args.range
-df['snp_gprofiler_' + str(args.range)] = chr + ':' + (pos.astype(int) - int(args.range)).astype(str) + ':' + (pos.astype(int) + int(args.range)).astype(str)
+# df['snp_gprofiler_' + str(args.range)] = chr + ':' + (pos.astype(int) - int(args.range)).astype(str) + ':' + (pos.astype(int) + int(args.range)).astype(str)
+df['snp_gprofiler'] = chr + ':' + (pos.astype(int) - int(args.range)).astype(str) + ':' + (pos.astype(int) + int(args.range)).astype(str)
 
 # write output file
 df.to_csv(args.output, sep=',', index=False)
