@@ -47,7 +47,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 ## ttest negative filtering
@@ -62,7 +62,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 ## ttest positive filtering
@@ -77,7 +77,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 # remove the edgelist
@@ -105,7 +105,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 ## ttest negative filtering
@@ -120,7 +120,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 ## ttest positive filtering
@@ -135,7 +135,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 # remove the edgelist
@@ -163,7 +163,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 ## ttest negative filtering
@@ -178,7 +178,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 ## ttest positive filtering
@@ -193,7 +193,7 @@ python $home/$dir_script/$file_script_community $name_edgelist community.csv
 # prepare the snp coordinates for gProfiler
 python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
 # rename the community file
-name_community=$name_edgelist.community.csv
+name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
 mv community.csv $name_community
 
 # remove the edgelist
