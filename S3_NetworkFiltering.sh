@@ -28,7 +28,7 @@ cd $dir_output
 ## process rat_xor
 echo "Processing rat_xor"
 edgelist=$file_rat_xor
-cutoff_p=0.0434
+cutoff_p=0.0295
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
@@ -54,7 +54,7 @@ rm $edgelist
 ## process rat_cart
 echo "Processing rat_cart"
 edgelist=$file_rat_cat
-cutoff_p=0.03
+cutoff_p=0.0217
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
@@ -80,7 +80,7 @@ rm $edgelist
 ## process mouse_xor
 echo "Processing mouse_xor"
 edgelist=$file_mouse_xor
-cutoff_p=0.0095
+cutoff_p=0.0014
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
