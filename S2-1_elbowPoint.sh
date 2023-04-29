@@ -3,13 +3,13 @@
 
 #### Parameters ####
 dir_target=res_purning
-dir_output=kneed_point
+dir_output=inflection_point
 
 dir_script=scr
 file_script=identifyElbowPoint.py
 
-sensitivity_begin=10
-sensitivity_end=30
+sensitivity_begin=0
+sensitivity_end=200
 sensitivity_step=10
 
 # save pwd to home
