@@ -16,7 +16,6 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-input', type=str, default='data.csv')
-parser.add_argument('-output', type=str, default='elbowPoint.csv')
 parser.add_argument('-x', type=str, default='x')
 parser.add_argument('-y', type=str, default='y')
 parser.add_argument('-curve', type=str, default='concave')

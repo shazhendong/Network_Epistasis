@@ -91,3 +91,4 @@ res/significant_cart_mouse.csv_networkInvestigation_pval.csv
 res/cartesian_significant_rat.csv_networkInvestigation_ttest_positive.csv
 res/cartesian_significant_rat.csv_networkInvestigation_ttest_negative.csv
 res/cartesian_significant_rat.csv_networkInvestigation_pval.csv
+*.csv
