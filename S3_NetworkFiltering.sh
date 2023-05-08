@@ -14,7 +14,7 @@ dir_script=scr
 file_script_filter=edge_filter.py
 file_script_community=network_community.py
 file_prepare_snp=prepare_snp_for_gProfiler.py
-snp_range=10000
+snp_range=1000000
 
 # save pwd to home
 home=$(pwd)
@@ -28,7 +28,7 @@ cd $dir_output
 ## process rat_xor
 echo "Processing rat_xor"
 edgelist=$file_rat_xor
-cutoff_p=0.0295
+cutoff_p=0.0434
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
@@ -54,7 +54,7 @@ rm $edgelist
 ## process rat_cart
 echo "Processing rat_cart"
 edgelist=$file_rat_cat
-cutoff_p=0.0217
+cutoff_p=0.0488
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
@@ -80,7 +80,7 @@ rm $edgelist
 ## process mouse_xor
 echo "Processing mouse_xor"
 edgelist=$file_mouse_xor
-cutoff_p=0.0014
+cutoff_p=0.0095
 
 # copy the edgelist to the output folder
 cp $home/$dir_input/$edgelist .
