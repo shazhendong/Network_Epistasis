@@ -9,15 +9,18 @@ dir_input=$dir_target/network_filterings
 dir_output=$dir_input/compare_for_ratcart_ratxors
 
 file_network1=Rat_XOR2W_filtered.csv.pvalue_cutoff_0.0434.mod_se.edgelist.csv
+file_network1_community=Rat_XOR2W_filtered.csv.pvalue_cutoff_0.0434.mod_se.edgelist.csv.community.enrichment_range_1000000.csv
 file_network2=Rat_Cart2W_filtered.csv.pvalue_cutoff_0.0488.mod_se.edgelist.csv
+file_network2_community=Rat_Cart2W_filtered.csv.pvalue_cutoff_0.0488.mod_se.edgelist.csv.community.enrichment_range_1000000.csv
 
 dir_script=scr
 file_script_comp_net=edgelist_comparison.py
 file_add_col=addColumn2df.py
+file_scr_comp_comm=community_comparison.py
 
 #### Main ####
 # prepare the output folder
-rm -rf $dir_output
+# rm -rf $dir_output
 mkdir -p $dir_output
 
 # compare the two edgelists
@@ -39,6 +42,9 @@ tail -n +2 $file_network2.only.csv > $file_network2.only.csv.headerless
 # combine the edgelists
 cat common_edges.csv $file_network1.only.csv.headerless $file_network2.only.csv.headerless > cytoscapeReady_combined_edgelist.csv
 
+# compare the two community files
+python $dir_script/$file_scr_comp_comm $dir_input/$file_network1_community $dir_input/$file_network2_community community node xor cart
+
 # clean up
 mv common_edges.csv $dir_output
 mv $file_network1.only.csv $dir_output
@@ -46,3 +52,5 @@ mv $file_network2.only.csv $dir_output
 mv cytoscapeReady_combined_edgelist.csv $dir_output
 rm $file_network1.only.csv.headerless
 rm $file_network2.only.csv.headerless
+
+mv community_comparison.csv $dir_output
