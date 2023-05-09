@@ -17,6 +17,7 @@ dir_script=scr
 file_script_comp_net=edgelist_comparison.py
 file_add_col=addColumn2df.py
 file_scr_comp_comm=community_comparison.py
+file_scr_community_metadata=community_metadata.py
 
 #### Main ####
 # prepare the output folder
@@ -45,6 +46,12 @@ cat common_edges.csv $file_network1.only.csv.headerless $file_network2.only.csv.
 # compare the two community files
 python $dir_script/$file_scr_comp_comm $dir_input/$file_network1_community $dir_input/$file_network2_community community node xor cart
 
+# get metadata for the communities
+python $dir_script/$file_scr_community_metadata $dir_input/$file_network1_community community node
+mv community_metadata.csv $file_network1_community.metadata.csv
+python $dir_script/$file_scr_community_metadata $dir_input/$file_network2_community community node
+mv community_metadata.csv $file_network2_community.metadata.csv
+
 # clean up
 mv common_edges.csv $dir_output
 mv $file_network1.only.csv $dir_output
@@ -54,3 +61,5 @@ rm $file_network1.only.csv.headerless
 rm $file_network2.only.csv.headerless
 
 mv community_comparison.csv $dir_output
+mv $file_network1_community.metadata.csv $dir_output
+mv $file_network2_community.metadata.csv $dir_output
