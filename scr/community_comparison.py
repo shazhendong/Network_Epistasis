@@ -48,8 +48,12 @@ for i in range(len(df_community1_subdfs)):
         # append the row to the community comparison df do not use append
         df_community_comparison.loc[len(df_community_comparison)] = [community1_names[i], community2_names[j], common_nodes_number]
 
+# add the alias to community1 and community2 columns in df_community_comparison
+df_community_comparison[community1_alias] = df_community_comparison[community1_alias].apply(lambda x: community1_alias + '_c_' + str(x))
+df_community_comparison[community2_alias] = df_community_comparison[community2_alias].apply(lambda x: community2_alias + '_c_' + str(x))
+
 # delete rows with common_nodes_number = 0
-# df_community_comparison = df_community_comparison[df_community_comparison['common_nodes_number'] != 0]
+df_community_comparison = df_community_comparison[df_community_comparison['common_nodes_number'] != 0]
 
 # sort the df by common_nodes_number
 df_community_comparison = df_community_comparison.sort_values(by=['common_nodes_number'], ascending=False)

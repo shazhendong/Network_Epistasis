@@ -15,10 +15,6 @@ community_col_name = sys.argv[2]
 # read the node name column name
 node_name_col_name = sys.argv[3]
 
-print(df_community1.head())
-print(community_col_name)
-print(node_name_col_name)
-
 # get subdfs for each community
 df_community1_subdfs = []
 community1_names = df_community1[community_col_name].unique()
