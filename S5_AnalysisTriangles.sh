@@ -1,17 +1,16 @@
 # This pipeline perform analysis for tri-angles in the epistatic network. It first filter the network by threshold, produce the edgelist and perform analysis. 1) get triangles 2) get snp names 3) prepare for enrichment analysis.
-# Author: Zhendong Sha 2023-04-16
+# Author: Zhendong Sha 2023-07-16
 
 #### Parameters ####
 dir_target=res_purning
-dir_output=network_filterings
+dir_output=triangles
 dir_input=data_purning
 file_rat_cat=Rat_Cart2W_filtered.csv
 file_rat_xor=Rat_XOR2W_filtered.csv
-file_mouse_cat=Mouse_Cart2W_filtered.csv
-file_mouse_xor=Mouse_XOR2W_filtered.csv
 
 dir_script=scr
 file_script_filter=edge_filter.py
+file_script_getTriangles=get_triangles_from_edgelist.py
 file_script_community=network_community.py
 file_prepare_snp=prepare_snp_for_gProfiler.py
 snp_range=1000000
@@ -40,13 +39,16 @@ python $home/$dir_script/$file_script_filter $edgelist snp1_name snp2_name adj_p
 # rename the edgelist
 name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv # edge list file name
 mv edge_list.csv $name_edgelist
-# determin the network community
-python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# get triangles
+python $home/$dir_script/$file_script_getTriangles -i $name_edgelist -o1 triangles.csv -o2 triangles_snp.csv
+# rename the triangles file
+name_triangles=$name_edgelist.triangles.csv
+mv triangles.csv $name_triangles
+# rename the triangles_snp file
+name_triangles_snp=$name_edgelist.triangles_snp.csv
+mv triangles_snp.csv $name_triangles_snp
 # prepare the snp coordinates for gProfiler
-python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
-# rename the community file
-name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
-mv community.csv $name_community
+python $home/$dir_script/$file_prepare_snp -i $name_triangles_snp -o $name_triangles_snp -r $snp_range -c snp
 
 # remove the edgelist
 rm $edgelist
@@ -66,13 +68,16 @@ python $home/$dir_script/$file_script_filter $edgelist snp1_name snp2_name adj_p
 # rename the edgelist
 name_edgelist=$edgelist.pvalue_cutoff_$cutoff_p.mod_se.edgelist.csv # edge list file name
 mv edge_list.csv $name_edgelist
-# determin the network community
-python $home/$dir_script/$file_script_community $name_edgelist community.csv
+# get triangles
+python $home/$dir_script/$file_script_getTriangles -i $name_edgelist -o1 triangles.csv -o2 triangles_snp.csv
+# rename the triangles file
+name_triangles=$name_edgelist.triangles.csv
+mv triangles.csv $name_triangles
+# rename the triangles_snp file
+name_triangles_snp=$name_edgelist.triangles_snp.csv
+mv triangles_snp.csv $name_triangles_snp
 # prepare the snp coordinates for gProfiler
-python $home/$dir_script/$file_prepare_snp -i community.csv -o community.csv -r $snp_range -c node
-# rename the community file
-name_community=$name_edgelist.community.enrichment_range_$snp_range.csv
-mv community.csv $name_community
+python $home/$dir_script/$file_prepare_snp -i $name_triangles_snp -o $name_triangles_snp -r $snp_range -c snp
 
 # remove the edgelist
 rm $edgelist
