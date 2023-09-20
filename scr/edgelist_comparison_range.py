@@ -4,7 +4,7 @@
 # This comparision do not require edges to be exactly the same. It allows a range of difference in the chr pos of the edges.
 # The edgelist should be in the format of "from,to,weight"
 # Parameters: edgelist1, edgelist2, range
-# Output: common_edges_"range".csv, edgelist1_only_"range".csv, edgelist2_only_"range".csv
+# Output: edgelist1_common_range.csv, edgelist1_only_range.csv, edgelist2_common_range.csv, edgelist2_only_range.csv
 
 
 import sys
@@ -144,7 +144,7 @@ df_G2_common_edges = pd.DataFrame(G2_common_edges, columns=['from', 'to'])
 df_G2_only_edges = pd.DataFrame(G2_only_edges, columns=['from', 'to'])
 
 # save the df to csv
-df_G1_common_edges.to_csv("edgelist1_common_" + str(range) + ".csv", index=False)
-df_G1_only_edges.to_csv("edgelist1_only_" + str(range) + ".csv", index=False)
-df_G2_common_edges.to_csv("edgelist2_common_" + str(range) + ".csv", index=False)
-df_G2_only_edges.to_csv("edgelist2_only_" + str(range) + ".csv", index=False)
+df_G1_common_edges.to_csv(sys.argv[1] + "_common_range.csv", index=False)
+df_G1_only_edges.to_csv(sys.argv[1] + "_only_range.csv", index=False)
+df_G2_common_edges.to_csv(sys.argv[2] + "_common_range.csv", index=False)
+df_G2_only_edges.to_csv(sys.argv[2] + "_only_range.csv", index=False)
