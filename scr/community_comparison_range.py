@@ -77,6 +77,19 @@ for i in range(len(df_community1_subdfs)):
         # append the row to the community comparison df do not use append
         df_community_comparison.loc[len(df_community_comparison)] = [community1_names[i], community2_names[j],common_nodes_number_wihtrange]
 
+# compare all nodes in community1 with all nodes in community2
+# for each node in community1
+common_nodes_number_wihtrange = 0
+for node_name1 in df_community1[node_name_col_name]:
+    # for each node in community2
+    for node_name2 in df_community2[node_name_col_name]:
+        # check if the two nodes are the same
+        if is_same_node_name(node_name1, node_name2, snp_range):
+            common_nodes_number_wihtrange += 1
+            break
+# append the row to the community comparison df
+df_community_comparison.loc[len(df_community_comparison)] = ['all', 'all', common_nodes_number_wihtrange]
+
 # add the alias to community1 and community2 columns in df_community_comparison
 df_community_comparison[community1_alias] = df_community_comparison[community1_alias].apply(lambda x: community1_alias + '_c_' + str(x))
 df_community_comparison[community2_alias] = df_community_comparison[community2_alias].apply(lambda x: community2_alias + '_c_' + str(x))
